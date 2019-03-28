@@ -15,8 +15,14 @@
     var time = ['清晨','上午','中午','下午','傍晚','夜晚','凌晨']
     var site = ['家里','教室','机房','办公室','厕所','操场','食堂','宿舍']
     var action = ['打游戏','吃饭','吹牛逼','上课','睡觉','玩手机','看书','撩妹']
-    var i = Math.floor(Math.random()*7)
-    document.write(people[i] + time[i] + '在' + site[i] + action[i])
+    function chooseRandomNumberInArray(array) {
+      return array[Math.floor(Math.random()*array.length)]
+    }
+    var sentence = chooseRandomNumberInArray(people) + chooseRandomNumberInArray(time) + '在' + chooseRandomNumberInArray(site) + chooseRandomNumberInArray(action)
+    function write(X) {
+      document.write(X)
+    }
+    write(sentence)
   </script>
 </body>
 </html>
