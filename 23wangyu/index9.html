@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="Cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var chevy = {
+      make: 'chevy',
+      model: 'Bel Air',
+      year: 1957,
+      color: 'red',
+      passengers: 2,
+      convertible: false,
+      mileage: 1021,
+      showMake: function(){
+        document.write(this.make)
+      },
+      changeColor: function(color){
+        this.color=color
+      }
+    }
+    document.write(chevy.color)
+    document.write(chevy.mileage += 100)
+    chevy.showMake()
+    chevy.changeColor('blue')
+    document.write(chevy.color)
+  </script>
+</body>
+</html>

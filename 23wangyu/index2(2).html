@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>No return</title>
+</head>
+<body>
+  <script>
+    function bake(degree) {
+      var message
+      if (degree > 500) {
+        message="我不是核反应堆"
+        alert(message)
+      } else if (degree < 100) {
+        message="我不是冰箱"
+        alert(message)
+      } else {
+        message="温度正好，工作正常"
+        alert(message)
+      }
+    }
+    bake(600)
+    bake(400)
+    bake(80)
+  </script>
+</body>
+</html>

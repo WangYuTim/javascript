@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var highest = 0
+    var xiabiao = []
+    var j = 0
+    var scroes = [90,84,40,75,89,100,73,64,100]
+    for (var i = 0;i < scroes.length;i++) {
+      if (scroes[i] > highest) {
+        highest = scroes[i]
+        xiabiao=[]
+        j = 0
+        xiabiao[j] = i
+      } else if (scroes[i] == highest) {
+        j++
+        xiabiao[j] = i
+      }
+    }
+    for (var k=0;k < xiabiao.length;k++) {
+      document.write(highest + 'scroes['+ xiabiao[k] +']'+'<br>')
+    }
+  </script>
+</body>
+</html>
