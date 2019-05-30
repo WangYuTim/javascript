@@ -10,9 +10,6 @@ var view={
   displayMiss: function(location) {
     var cell = document.getElementById(location);
     cell.setAttribute("class","miss");
-  },
-  displayLocation: function(location) {
-    var cell = document.getElementById(location);
   }
 };
 
@@ -23,8 +20,8 @@ var model = {
   ships: [{locations:[0,0,0],hits:["","",""]},
           {locations:[0,0,0],hits:["","",""]},
           {locations:[0,0,0],hits:["","",""]},
-          {locations:[0,0],hits:["",""]},
-          {locations:[0],hits:[""]}
+          //{locations:[0,0],hits:["",""]},
+          //{locations:[0],hits:[""]}
       ],
   fire: function(guess) {
     for (var i = 0;i < model.ships.length;i++) {
@@ -53,12 +50,12 @@ var model = {
     }
     for (var i = 0;i < model.shipLength;i++) {
       if(ship.hits[i] ==="hit"){
-        document.getElementById(ship.locations[i]).style.backgroundColor = 'red';
+        document.getElementById(ship.locations[i]).style.backgroundImage = 'url(boom.png)';
         count++;
       }
       if (count *10 > model.shipLength *6) {
         for (var i = 0;i < model.shipLength;i++) {
-          document.getElementById(ship.locations[i]).style.backgroundColor = 'red';
+          document.getElementById(ship.locations[i]).style.backgroundImage = 'url(boom.png)';
         }
         return true;
       }
@@ -147,6 +144,7 @@ function parseGuess(guess) {
 }
 
 function init() {
+  document.body.style.cursor = 'url(mouse.png),auto';
   var td = document.getElementsByTagName("td");
   for (var i = 0;i < td.length;i++) {
     td[i].onclick = controller.processGuess;
