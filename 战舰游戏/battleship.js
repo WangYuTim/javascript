@@ -19,9 +19,7 @@ var model = {
   shipSunk: 0,
   ships: [{locations:[0,0,0],hits:["","",""]},
           {locations:[0,0,0],hits:["","",""]},
-          {locations:[0,0,0],hits:["","",""]},
-          //{locations:[0,0],hits:["",""]},
-          //{locations:[0],hits:[""]}
+          {locations:[0,0,0],hits:["","",""]}
       ],
   fire: function(guess) {
     for (var i = 0;i < model.ships.length;i++) {
@@ -34,6 +32,9 @@ var model = {
         if (this.isSunk(ship)) {
           view.displayMessage("You sank my battleship!");
           this.shipSunk++;
+          for (var i = 0;i < model.shipLength;i++) {
+            document.getElementById(ship.locations[i]).onclick = function(){};
+          }
         }
         return true;
       }
@@ -45,10 +46,8 @@ var model = {
   isSunk: function(ship) {
     var count = 0;
     for (var i = 0;i < model.shipLength;i++) {
-      document.getElementById(ship.locations[i]).style.backgroundColor = 'green';
+      //document.getElementById(ship.locations[i]).style.backgroundColor = 'green';
       view.displayHit(ship.locations[i]);
-    }
-    for (var i = 0;i < model.shipLength;i++) {
       if(ship.hits[i] ==="hit"){
         document.getElementById(ship.locations[i]).style.backgroundImage = 'url(boom.png)';
         count++;
@@ -144,7 +143,7 @@ function parseGuess(guess) {
 }
 
 function init() {
-  document.body.style.cursor = 'url(mouse.png),auto';
+  document.body.style.cursor = 'url(zx.png),auto';
   var td = document.getElementsByTagName("td");
   for (var i = 0;i < td.length;i++) {
     td[i].onclick = controller.processGuess;
